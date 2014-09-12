@@ -30,14 +30,18 @@ class account_voucher(osv.osv):
 		res=super(account_voucher, self).onchange_amount(cr, uid, ids, amount, rate, partner_id, journal_id, currency_id, ttype, date, payment_rate_currency_id, company_id, context)
 		for l in res['value']['line_cr_ids']:
 			l['reconcile']=False
+			l['amount']=0
 		for l in res['value']['line_dr_ids']:
 			l['reconcile']=False
+			l['amount']=0
 		return res
 	def onchange_partner_id(self, cr, uid, ids, partner_id, journal_id, amount, currency_id, ttype, date, context=None):
 		res=super(account_voucher, self).onchange_partner_id(cr, uid, ids, partner_id, journal_id, amount, currency_id, ttype, date, context)
 		for l in res['value']['line_cr_ids']:
 			l['reconcile']=False
+			l['amount']=0
 		for l in res['value']['line_dr_ids']:
 			l['reconcile']=False
+			l['amount']=0
 		return res
 account_voucher()
