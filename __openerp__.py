@@ -28,9 +28,11 @@
         "category" : "Contabilidad",
         "description": """
         * Cambia el resultado del onchange de cliente en pagos de cliente, con el fin de que no aparezca marcada la opción de Conciliación Completa.
+        * También se quitaron los botones de pagar factura de las vistas de facturas de cliente y proveedor, ya que al desactivar los onchange, estos botones no funcionan correctamente.
         """,
-        "depends" : ['base','account_voucher'],
+        "depends" : ['base','account','account_voucher'],
         "init_xml" : [ ],
+        "update_xml" : ['dis_account_voucher_auto_reconcile_off_view.xml'],
         "demo_xml" : [ ],
         "data" : [ ],
         "installable": True
